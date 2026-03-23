@@ -1,4 +1,4 @@
-<!-- EJERCICIO 2: API + filtros + paginación -->
+<!-- EJERCICIO 2: API con Pinia + componente reutilizable -->
 <template>
   <v-container style="max-width: 1100px;" class="py-8">
 
@@ -12,7 +12,6 @@
       <v-btn
         color="primary"
         size="large"
-        variant="elevated"
         @click="cargarPosts"
         :disabled="posts.length > 0"
       >
@@ -47,36 +46,7 @@
         sm="6"
         md="4"
       >
-        <v-card
-          elevation="6"
-          rounded="xl"
-          class="pa-4 d-flex flex-column justify-space-between"
-          height="100%"
-        >
-
-          <!-- TÍTULO -->
-          <v-card-title class="text-subtitle-1 font-weight-bold">
-            {{ post.title }}
-          </v-card-title>
-
-          <!-- TEXTO -->
-          <v-card-text class="text-body-2 text-grey-darken-1">
-            {{ post.body.substring(0, 100) }}...
-          </v-card-text>
-
-          <!-- BOTÓN -->
-          <router-link :to="`/detalle/${post.id}`">
-            <v-btn
-              color="primary"
-              variant="tonal"
-              block
-              class="mt-4"
-            >
-              Ver detalle
-            </v-btn>
-          </router-link>
-
-        </v-card>
+        <PostCard :post="post" />
       </v-col>
     </v-row>
 
@@ -105,37 +75,44 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-import axios from 'axios'
+import { usePostsStore } from '../stores/postsStore'
+import PostCard from '../components/PostCard.vue'
 
-const posts = ref([])
+// Store
+const store = usePostsStore()
+
+// Estado local
 const busqueda = ref('')
 const pagina = ref(1)
 const porPagina = 9
 
-const cargarPosts = async () => {
-  const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
-  posts.value = res.data
+// Posts desde Pinia
+const posts = computed(() => store.posts)
+
+// Cargar datos
+const cargarPosts = () => {
+  store.cargarPosts()
 }
 
-// FILTRO
+// Filtro
 const postsFiltrados = computed(() =>
   posts.value.filter(p =>
     p.title.toLowerCase().includes(busqueda.value.toLowerCase())
   )
 )
 
-// TOTAL PÁGINAS
+// Total páginas
 const totalPaginas = computed(() =>
   Math.ceil(postsFiltrados.value.length / porPagina)
 )
 
-// PAGINACIÓN
+// Paginación
 const postsPaginados = computed(() => {
   const inicio = (pagina.value - 1) * porPagina
   return postsFiltrados.value.slice(inicio, inicio + porPagina)
 })
 
-// RESET BUSCADOR
+// Reset al buscar
 watch(busqueda, () => {
   pagina.value = 1
 })
