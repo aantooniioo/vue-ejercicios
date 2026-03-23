@@ -8,8 +8,11 @@
 
   <ul>
     <li v-for="(artista, index) in store.artistas" :key="index">
-        <input v-model="artista.nombre" />
-      <button @click="eliminarArtista(index)">Eliminar</button>
+      <input v-model="artista.nombre" />
+
+      <button @click="eliminarArtista(index)">
+        Eliminar
+      </button>
     </li>
   </ul>
 </template>
@@ -21,11 +24,12 @@ import { useMusicStore } from '../stores/musicStore'
 const store = useMusicStore()
 const nombre = ref('')
 
+
 const crearArtista = () => {
-  if (nombre.value !== '') {
-    store.addArtista({ nombre: nombre.value })
-    nombre.value = ''
-  }
+  if (nombre.value.trim() === '') return
+
+  store.addArtista({ nombre: nombre.value })
+  nombre.value = ''
 }
 
 const eliminarArtista = (index) => {
@@ -40,6 +44,6 @@ const eliminarArtista = (index) => {
     return
   }
 
-    store.artistas.splice(index, 1)
+  store.artistas.splice(index, 1)
 }
 </script>

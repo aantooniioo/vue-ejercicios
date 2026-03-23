@@ -5,7 +5,11 @@
 
   <select v-model="artistaSeleccionado">
     <option disabled value="">Selecciona artista</option>
-    <option v-for="(artista, index) in store.artistas" :key="index">
+    <option 
+      v-for="(artista, index) in store.artistas" 
+      :key="index"
+      :value="artista.nombre"
+    >
       {{ artista.nombre }}
     </option>
   </select>
@@ -17,11 +21,17 @@
   <ul>
     <li v-for="(disco, index) in store.discos" :key="index">
       <input v-model="disco.titulo" />
+
       <select v-model="disco.artista">
-        <option v-for="(artista, i) in store.artistas" :key="i">
+        <option 
+          v-for="(artista, i) in store.artistas" 
+          :key="i"
+          :value="artista.nombre"
+        >
           {{ artista.nombre }}
         </option>
       </select>
+
       <button @click="eliminarDisco(index)">Eliminar</button>
     </li>
   </ul>
@@ -36,18 +46,18 @@ const store = useMusicStore()
 const titulo = ref('')
 const artistaSeleccionado = ref('')
 
+
 const crearDisco = () => {
-  if (titulo.value !== '' && artistaSeleccionado.value !== '') {
-    store.addDisco({
-      titulo: titulo.value,
-      artista: artistaSeleccionado.value
-    })
+  if (titulo.value.trim() === '' || artistaSeleccionado.value === '') return
 
-    titulo.value = ''
-    artistaSeleccionado.value = ''
-  }
+  store.addDisco({
+    titulo: titulo.value,
+    artista: artistaSeleccionado.value
+  })
+
+  titulo.value = ''
+  artistaSeleccionado.value = ''
 }
-
 const eliminarDisco = (index) => {
   store.discos.splice(index, 1)
 }
