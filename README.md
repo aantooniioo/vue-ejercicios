@@ -1,29 +1,38 @@
-# Vue Ejercicios
+# ejercicio2-api-app
 
-Repositorio con los ejercicios realizados en Vue 3 durante las prácticas.
+This template should help get you started developing with Vue 3 in Vite.
 
----
+## Recommended IDE Setup
 
-## 📁 Contenido
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-* `ejercicio1-music-manager`
-  CRUD de artistas y discos usando Pinia.
+## Recommended Browser Setup
 
-* `ejercicio2-api-app`
-  Aplicación que consume una API con Axios, con listado, detalle, filtros y paginación.
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
----
+## Customize configuration
 
-## 🚀 Ejecución
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-```bash
-cd ejercicio1-music-manager
+## Project Setup
+
+```sh
 npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
 npm run dev
 ```
 
-```bash
-cd ejercicio2-api-app
-npm install
-npm run dev
+### Compile and Minify for Production
+
+```sh
+npm run build
 ```

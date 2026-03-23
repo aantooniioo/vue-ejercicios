@@ -1,3 +1,5 @@
+// EJERCICIO 1: Estado con Pinia
+
 import { defineStore } from 'pinia'
 
 export const useMusicStore = defineStore('music', {
