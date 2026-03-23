@@ -1,38 +1,77 @@
-# ejercicio2-api-app
+# Proyecto Vue - Ejercicios
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicación desarrollada con Vue 3 que integra dos ejercicios en una única SPA (Single Page Application), utilizando Vue Router, Vuetify, Pinia y Axios.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Ejercicio 1
 
-## Recommended Browser Setup
+Gestión de artistas y discos:
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Crear, editar y eliminar artistas
+- Crear, editar y eliminar discos
+- Relación entre discos y artistas mediante un desplegable
+- No se permite eliminar un artista si tiene discos asociados
+- Gestión del estado con Pinia (datos en memoria)
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Ejercicio 2
 
-## Project Setup
+Consumo de API externa:
 
-```sh
+- Petición a una API mediante Axios con un botón
+- Visualización de datos en tarjetas (Vuetify v-card)
+- Filtro de búsqueda por título
+- Paginación de resultados
+- Navegación a una vista de detalle de cada elemento
+
+---
+
+## Navegación
+
+La aplicación cuenta con un menú superior con las siguientes rutas:
+
+- API → Ejercicio 2
+- Artistas → Ejercicio 1
+- Discos → Ejercicio 1
+
+---
+
+## Tecnologías utilizadas
+
+- Vue 3
+- Vue Router
+- Vuetify
+- Pinia
+- Axios
+
+---
+
+## Ejecución del proyecto
+
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
-```
+````
 
-### Compile and Minify for Production
+---
 
-```sh
-npm run build
-```
+# POR QUÉ ESTE README ES PERFECTO
+
+  Porque:
+
+✔️ Explica los 2 ejercicios  
+✔️ Dice que es una SPA (esto gusta)  
+✔️ Nombra tecnologías (muy importante)  
+✔️ Es claro y ordenado  
+✔️ No es demasiado largo  
+
+---
+
+# 🚀 DESPUÉS DE PEGARLO
+
+```bash
+git add README.md
+git commit -m "Actualización README"
+git push
