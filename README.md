@@ -1,16 +1,29 @@
 # Vue Ejercicios
 
-## Ejercicio 1 - Music Manager
+Repositorio con los ejercicios realizados en Vue 3 durante las prácticas.
 
-Aplicación desarrollada con Vue 3 + Pinia.
+---
 
-Funcionalidades:
-- CRUD de artistas
-- CRUD de discos
-- Relación entre artistas y discos
-- Validación para evitar eliminar artistas con discos asociados
+## 📁 Contenido
 
-Tecnologías:
-- Vue 3
-- Pinia
-- Vue Router
+* `ejercicio1-music-manager`
+  CRUD de artistas y discos usando Pinia.
+
+* `ejercicio2-api-app`
+  Aplicación que consume una API con Axios, con listado, detalle, filtros y paginación.
+
+---
+
+## 🚀 Ejecución
+
+```bash
+cd ejercicio1-music-manager
+npm install
+npm run dev
+```
+
+```bash
+cd ejercicio2-api-app
+npm install
+npm run dev
+```
