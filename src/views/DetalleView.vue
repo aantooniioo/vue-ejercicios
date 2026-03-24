@@ -4,17 +4,14 @@
 
     <v-card width="600" elevation="6" rounded="xl" class="pa-6">
 
-      <!-- TÍTULO -->
-      <v-card-title class="text-h6 font-weight-bold text-center">
+      <v-card-title class="text-h5 font-weight-bold text-center">
         {{ post?.title }}
       </v-card-title>
 
-      <!-- TEXTO -->
       <v-card-text class="text-body-1 text-grey-darken-1 text-center mt-4">
         {{ post?.body }}
       </v-card-text>
 
-      <!-- BOTÓN -->
       <div class="d-flex justify-center mt-6">
         <router-link to="/">
           <v-btn color="primary" variant="elevated">
